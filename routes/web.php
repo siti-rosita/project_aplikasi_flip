@@ -21,3 +21,7 @@ $router->post('/users', 'UserController@store');
 $router->get('/users/{id}', 'UserController@show');
 $router->post('/users/{id}/update', 'UserController@update');
 $router->delete('/users/{id}', 'UserController@destroy');
+
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('/register', 'AuthController@register');
+});
